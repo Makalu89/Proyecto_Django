@@ -1,34 +1,27 @@
 {% extends 'todo/layout.html' %}
 {% block content %}
-<table class="table table-striped table-dark">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Tarea</th>
-        <th scope="col">Acción</th>
-
-      </tr>
-    </thead>
-    <tbody>
-        {% for tarea in tareas %}    
+    <div class="container">
+    <table class="table table-striped table-dark">
+        <thead>
         <tr>
-            <th scope="row"> {{tarea.id}} </th>
-            <td> {{tarea}}</td>
-            <td>
-                <a href="{% url 'eliminar' tarea.id %}">Eliminar </a></button>
-                <a href="{% url%}"
-            </td>
-            
+            <th scope="col">#</th>
+            <th scope="col">Tarea</th>
+            <th scope="col">Acción</th>
         </tr>
-    </tbody>
-  </table>
-    <h1> Lista de Tareas</h1>
-    <ul>
-        
-        <li>{{ tarea }}</li>
-        <button><a href="{% url 'eliminar' tarea.id %}"> Eliminar </a></button>
-        <button><a href="{% url 'editar' tarea.id %}"> Editar </a></button>
-        {% endfor %}
-    </ul>
-        
-{% endblock %}
+        </thead>
+        <tbody>
+            {% for tarea in tareas %}    
+            <tr>
+                <th scope="row"> {{tarea.id}} </th>
+                <td> {{tarea}}</td>
+                <td>
+                    <a class="btn btn-danger btn-sm" href="{% url 'eliminar' tarea.id %}">Eliminar </a></button>
+                    <a class="btn btn-primary btn-sm" href="{% url 'editar' tarea.id %}">Editar</a>
+                </td>  
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+            
+    {% endblock %}
